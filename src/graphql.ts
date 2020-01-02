@@ -10,6 +10,6 @@ export interface IQuery {
 }
 
 export interface User {
-    id?: string;
-    name?: string;
+    id: string;
+    name: string;
 }
