@@ -8,14 +8,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: path.join(process.cwd(), 'public'),
+    }),
     GraphQLModule.forRoot({
       typePaths: ['./**/*.gql'],
       definitions: {
         path: path.join(process.cwd(), 'src', 'graphql.ts'),
       },
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: path.join(process.cwd(), 'public'),
     }),
   ],
   controllers: [AppController],
