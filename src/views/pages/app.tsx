@@ -5,7 +5,7 @@ import RootIndex from './root/index';
 import ItemsIndex from './items/index';
 
 interface Props {
-  initial: unknown;
+  initial: any;
 }
 
 export const App: React.FC<Props> = ({ initial }) => {
@@ -14,8 +14,8 @@ export const App: React.FC<Props> = ({ initial }) => {
       <Layout>
         You can see <pre>{JSON.stringify(initial)}</pre>
         <Router>
-          <RootIndex path="/" />
-          <ItemsIndex path="/items" />
+          <RootIndex path="/" {...initial} />
+          <ItemsIndex path="/items" {...initial} />
         </Router>
       </Layout>
     </div>
