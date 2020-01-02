@@ -3,6 +3,7 @@ import { Router, Link } from '@reach/router';
 
 import AppIndex from './app/index';
 import ItemsIndex from './items/index';
+import ItemsShow from './items/show';
 
 interface Props {
   initial: any;
@@ -16,6 +17,7 @@ export const App: React.FC<Props> = ({ initial }) => {
         <Router>
           <AppIndex path="/" {...initial} />
           <ItemsIndex path="/items" {...initial} />
+          <ItemsShow path="/items/:id" {...initial} />
         </Router>
       </Layout>
     </div>
@@ -32,6 +34,12 @@ function Layout({ children }: { children: React.ReactNode }) {
           </li>
           <li>
             <Link to="/items">Items</Link>
+          </li>
+          <li>
+            <Link to="/items/1">Item #1</Link>
+          </li>
+          <li>
+            <Link to="/items/10">Item #10</Link>
           </li>
         </ul>
       </nav>

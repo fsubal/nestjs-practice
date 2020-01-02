@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Item } from './item.entity';
 import { Repository } from 'typeorm';
@@ -15,5 +15,12 @@ export class ItemController {
     const items = await this.itemRepository.find();
 
     return { items };
+  }
+
+  @Get('/items/:id')
+  async show(@Param() { id }: { id: string }) {
+    const item = await this.itemRepository.findOne(id);
+
+    return { item };
   }
 }
