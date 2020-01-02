@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Link } from '@reach/router';
 
-import RootIndex from './root/index';
+import AppIndex from './app/index';
 import ItemsIndex from './items/index';
 
 interface Props {
@@ -14,7 +14,7 @@ export const App: React.FC<Props> = ({ initial }) => {
       <Layout>
         You can see <pre>{JSON.stringify(initial)}</pre>
         <Router>
-          <RootIndex path="/" {...initial} />
+          <AppIndex path="/" {...initial} />
           <ItemsIndex path="/items" {...initial} />
         </Router>
       </Layout>
