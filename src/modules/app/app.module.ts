@@ -6,7 +6,8 @@ import { AppService } from './app.service';
 import SsrProvider from '../../interceptors/ssr';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ItemModule } from '../items/item.module';
+import { ItemModule } from '../item/item.module';
+import { ItemController } from '../item/item.controller';
 
 @Module({
   imports: [
@@ -33,7 +34,7 @@ import { ItemModule } from '../items/item.module';
       },
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, ItemController],
   providers: [AppService, SsrProvider],
 })
 export class AppModule {}
