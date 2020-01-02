@@ -33,7 +33,7 @@ const ItemsShow: Page<Props> = props => {
     );
   }
 
-  return data ? (
+  return data?.item ? (
     <>
       <h1>items #{data.item.id}</h1>
       <p>{data.item.name}</p>

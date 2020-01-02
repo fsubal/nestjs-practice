@@ -10,10 +10,8 @@ const schema = buildSchema(
     .toString(),
 );
 
-export default () => {
-  return new ApolloClient({
-    ssrMode: true,
-    link: new SchemaLink({ schema }),
-    cache: new InMemoryCache(),
-  });
-};
+export default new ApolloClient({
+  ssrMode: true,
+  link: new SchemaLink({ schema }),
+  cache: new InMemoryCache(),
+});

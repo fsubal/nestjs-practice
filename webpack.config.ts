@@ -1,5 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
+
+// @ts-ignore
 import ManifestPlugin from 'webpack-manifest-plugin';
 
 export default (

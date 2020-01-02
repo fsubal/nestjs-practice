@@ -7,11 +7,16 @@ import ItemsShow from './items/show/show';
 
 interface Props {
   initial: any;
+  apolloState?: any;
 }
 
-export const App: React.FC<Props> = ({ initial }) => {
+export const App: React.FC<Props> = ({ initial, apolloState }) => {
   return (
-    <div id="js-app" data-initial={JSON.stringify(initial)}>
+    <div
+      id="js-app"
+      data-initial={JSON.stringify(initial)}
+      data-apollo={JSON.stringify(apolloState)}
+    >
       <Layout>
         You can see <pre>{JSON.stringify(initial)}</pre>
         <Router>
