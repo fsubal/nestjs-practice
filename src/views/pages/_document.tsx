@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Document({ children }: { children: React.ReactNode }) {
+export function Document({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
@@ -11,6 +11,7 @@ export default function Document({ children }: { children: React.ReactNode }) {
         <title>Document</title>
       </head>
       <body>{children}</body>
+      <script></script>
     </html>
   );
 }

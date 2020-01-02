@@ -1,10 +1,9 @@
 import path from 'path';
-import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { APP_INTERCEPTOR } from '@nestjs/core';
-import { SsrInterceptor } from './interceptors/ssr';
+import SsrProvider from './interceptors/ssr';
 
 @Module({
   imports: [
@@ -16,12 +15,6 @@ import { SsrInterceptor } from './interceptors/ssr';
     }),
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: APP_INTERCEPTOR,
-      useClass: SsrInterceptor,
-    },
-  ],
+  providers: [AppService, SsrProvider],
 })
 export class AppModule {}
