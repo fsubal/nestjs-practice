@@ -5,9 +5,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import SsrProvider from '../../interceptors/ssr';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
+    TypeOrmModule.forRoot(),
     ServeStaticModule.forRoot({
       rootPath: path.join(process.cwd(), 'public'),
     }),

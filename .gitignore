@@ -3,6 +3,9 @@
 /public/bundles
 /node_modules
 
+# env
+ormconfig.js
+
 # Logs
 logs
 *.log
