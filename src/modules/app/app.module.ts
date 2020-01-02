@@ -6,13 +6,26 @@ import { AppService } from './app.service';
 import SsrProvider from '../../interceptors/ssr';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ItemModule } from '../items/item.module';
 
 @Module({
   imports: [
+    /**
+     * use mysql database
+     */
     TypeOrmModule.forRoot(),
+    ItemModule,
+
+    /**
+     * use static files
+     */
     ServeStaticModule.forRoot({
       rootPath: path.join(process.cwd(), 'public'),
     }),
+
+    /**
+     * use graphql
+     */
     GraphQLModule.forRoot({
       typePaths: ['./**/*.gql'],
       definitions: {
