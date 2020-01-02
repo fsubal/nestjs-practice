@@ -1,6 +1,11 @@
 import React from 'react';
 
-export function Document({ children }: { children: React.ReactNode }) {
+interface Props {
+  children: React.ReactChild;
+  javascript?: string;
+}
+
+export function Document({ children, javascript }: Props) {
   return (
     <html lang="ja">
       <head>
@@ -10,7 +15,10 @@ export function Document({ children }: { children: React.ReactNode }) {
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        {javascript && <script src={javascript}></script>}
+      </body>
     </html>
   );
 }

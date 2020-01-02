@@ -1,3 +1,4 @@
+import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Document } from '../views/pages/_document';
@@ -23,13 +24,29 @@ export class SsrInterceptor<T> implements NestInterceptor<T> {
         props =>
           `<!DOCTYPE html>${renderToString(
             <ServerLocation url={req.url}>
-              <Document>
+              <Document javascript={this.getJavaScript()}>
                 <App initial={props} />
               </Document>
             </ServerLocation>,
           )}`,
       ),
     );
+  }
+
+  private getJavaScript() {
+    try {
+      // FIXME
+      const manifest = require(path.resolve(
+        __dirname,
+        '..',
+        '..',
+        '..',
+        'public/bundles/manifest.json',
+      ));
+      return manifest['main.js'];
+    } catch {
+      return undefined;
+    }
   }
 }
 
