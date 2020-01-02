@@ -11,7 +11,6 @@ export function Document({ children }: { children: React.ReactNode }) {
         <title>Document</title>
       </head>
       <body>{children}</body>
-      <script></script>
     </html>
   );
 }
