@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import SsrProvider from '../../interceptors/ssr';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -12,6 +13,9 @@ import SsrProvider from '../../interceptors/ssr';
       definitions: {
         path: path.join(process.cwd(), 'src', 'graphql.ts'),
       },
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: path.join(process.cwd(), 'public'),
     }),
   ],
   controllers: [AppController],

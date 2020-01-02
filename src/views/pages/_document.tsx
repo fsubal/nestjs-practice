@@ -16,7 +16,7 @@ export function Document({ children, javascript }: Props) {
         <title>Document</title>
       </head>
       <body>
-        {children}
+        <div id="root">{children}</div>
         {javascript && <script src={javascript}></script>}
       </body>
     </html>

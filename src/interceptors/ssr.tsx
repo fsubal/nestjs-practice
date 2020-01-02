@@ -35,12 +35,8 @@ export class SsrInterceptor<T> implements NestInterceptor<T> {
 
   private getJavaScript() {
     try {
-      // FIXME
       const manifest = require(path.resolve(
-        __dirname,
-        '..',
-        '..',
-        '..',
+        process.cwd(),
         'public/bundles/manifest.json',
       ));
       return manifest['main.js'];
