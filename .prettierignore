@@ -1,2 +1,3 @@
 src/graphql.ts
 public/bundles
+**/*.min.css

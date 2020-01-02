@@ -12,12 +12,14 @@ export function Document({ children, javascript }: Props) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="marx.min.css" />
         <title>Document</title>
       </head>
       <body>
         <div id="root">{children}</div>
-        {javascript && <script src={javascript}></script>}
+        {javascript && (
+          <script type="text/javascript" defer src={javascript}></script>
+        )}
       </body>
     </html>
   );
