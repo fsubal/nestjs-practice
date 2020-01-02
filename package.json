@@ -28,6 +28,7 @@
     "@nestjs/typeorm": "^6.2.0",
     "@reach/router": "^1.2.1",
     "apollo-boost": "^0.4.7",
+    "apollo-link-schema": "^1.2.4",
     "apollo-server-express": "^2.9.15",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",

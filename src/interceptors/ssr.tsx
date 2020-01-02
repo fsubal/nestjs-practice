@@ -13,6 +13,8 @@ import {
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { map } from 'rxjs/operators';
 import { ServerLocation } from '@reach/router';
+import { ApolloProvider } from 'react-apollo';
+import createApolloClient from 'src/graphql/apollo.server';
 
 @Injectable()
 export class SsrInterceptor<T> implements NestInterceptor<T> {
@@ -30,9 +32,11 @@ export class SsrInterceptor<T> implements NestInterceptor<T> {
         props =>
           `<!DOCTYPE html>${renderToString(
             <ServerLocation url={req.url}>
-              <Document javascript={this.getJavaScript()}>
-                <App initial={props} />
-              </Document>
+              <ApolloProvider client={createApolloClient()}>
+                <Document javascript={this.getJavaScript()}>
+                  <App initial={props} />
+                </Document>
+              </ApolloProvider>
             </ServerLocation>,
           )}`,
       ),

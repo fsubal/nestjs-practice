@@ -2,7 +2,7 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 import { App } from './pages/app';
 import { ApolloProvider } from 'react-apollo';
-import ApolloClient from 'apollo-boost';
+import createApolloClient from '../graphql/apollo.client';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.querySelector<HTMLDivElement>('#root');
@@ -15,12 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const client = new ApolloClient({
-    uri: '/graphql',
-  });
-
   hydrate(
-    <ApolloProvider client={client}>
+    <ApolloProvider client={createApolloClient()}>
       <App initial={JSON.parse(app.dataset.initial!)} />
     </ApolloProvider>,
     root,

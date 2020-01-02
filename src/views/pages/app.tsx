@@ -2,8 +2,8 @@ import React from 'react';
 import { Router, Link } from '@reach/router';
 
 import AppIndex from './app/index';
-import ItemsIndex from './items/index';
-import ItemsShow from './items/show';
+import ItemsIndex from './items/index/index';
+import ItemsShow from './items/show/show';
 
 interface Props {
   initial: any;
