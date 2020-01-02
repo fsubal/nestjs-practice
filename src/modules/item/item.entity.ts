@@ -3,11 +3,11 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('items')
 export class Item {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @Column({ length: 500 })
-  name: string;
+  name!: string;
 
   @Column('text')
-  description: string;
+  description!: string;
 }

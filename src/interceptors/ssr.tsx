@@ -1,3 +1,4 @@
+import express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -17,7 +18,7 @@ import { ServerLocation } from '@reach/router';
 export class SsrInterceptor<T> implements NestInterceptor<T> {
   intercept(context: ExecutionContext, next: CallHandler<T>) {
     const http = context.switchToHttp();
-    const req = http.getRequest();
+    const req = http.getRequest<express.Request>();
 
     // /graphql などは req がないのでスキップ
     if (!req) {
