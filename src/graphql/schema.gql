@@ -1,8 +1,9 @@
 type Query {
-  me: User
+  items: [Item!]
+  item(id: ID!): Item
 }
 
-type User {
+type Item {
   id: ID!
   name: String!
   description: String!

@@ -19,6 +19,11 @@ export class SsrInterceptor<T> implements NestInterceptor<T> {
     const http = context.switchToHttp();
     const req = http.getRequest();
 
+    // /graphql などは req がないのでスキップ
+    if (!req) {
+      return next.handle();
+    }
+
     return next.handle().pipe(
       map(
         props =>

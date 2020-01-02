@@ -5,12 +5,13 @@
  */
 
 /* tslint:disable */
-export interface IQuery {
-    me(): User | Promise<User>;
-}
-
-export interface User {
+export interface Item {
     id: string;
     name: string;
     description: string;
+}
+
+export interface IQuery {
+    items(): Item[] | Promise<Item[]>;
+    item(id: string): Item | Promise<Item>;
 }
