@@ -5,4 +5,8 @@ interface Props {
   message: string;
 }
 
-export default (_props: RouteComponentProps & Props) => <h1>home</h1>;
+const RootIndex: Page<Props> = (_props: RouteComponentProps & Props) => (
+  <h1>home</h1>
+);
+
+export default RootIndex;
