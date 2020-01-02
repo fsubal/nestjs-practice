@@ -1,0 +1,7 @@
+CREATE TABLE items (
+  id BIGINT (20) AUTO_INCREMENT NOT NULL,
+  name VARCHAR (100) NOT NULL,
+  description TEXT NOT NULL,
+
+  PRIMARY KEY (id)
+);
