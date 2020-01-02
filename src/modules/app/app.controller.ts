@@ -9,4 +9,9 @@ export class AppController {
   getHello() {
     return { message: this.appService.getHello() };
   }
+
+  @Get('/items')
+  getItems() {
+    return { items: [] };
+  }
 }
