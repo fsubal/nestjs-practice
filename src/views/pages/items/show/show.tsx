@@ -1,25 +1,13 @@
 import React from 'react';
-import { useQuery } from 'react-apollo';
-import QUERY from './show.gql';
+import { useQuery } from './show.gql';
+import { Item } from '../../../../graphql';
 
 interface Props {
-  item: {
-    id: number;
-    name: string;
-    description: string;
-  };
+  item: Item;
 }
 
 const ItemsShow: Page<Props> = props => {
-  const { loading, error, data } = useQuery<{
-    item: {
-      id: number;
-      name: string;
-      description: string;
-    };
-  }>(QUERY, {
-    variables: { id: props.item.id },
-  });
+  const { loading, error, data } = useQuery({ id: Number(props.item.id) });
 
   if (loading) {
     return <div>loading ...</div>;

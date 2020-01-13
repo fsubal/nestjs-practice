@@ -1,6 +1,6 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
-import { App } from './pages/app';
+import { App } from './app';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient, { InMemoryCache } from 'apollo-boost';
 
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const apolloState = JSON.parse(app.dataset.apollo!);
-  console.log(apolloState);
 
   const client = new ApolloClient({
     uri: '/graphql',

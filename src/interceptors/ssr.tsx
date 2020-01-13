@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import { Document } from '../views/pages/_document';
-import { App } from '../views/pages/app';
+import { Document } from '../views/_document';
+import { App } from '../views/app';
 import {
   Injectable,
   NestInterceptor,
