@@ -1,4 +1,5 @@
 import React from 'react';
+import Container from './show.css';
 import { useQuery } from './show.gql';
 import { Item } from '../../../../graphql';
 
@@ -22,10 +23,10 @@ const ItemsShow: Page<Props> = props => {
   }
 
   return data?.item ? (
-    <>
+    <Container>
       <h1>items #{data.item.id}</h1>
       <p>{data.item.name}</p>
-    </>
+    </Container>
   ) : (
     <h1>Not Found</h1>
   );
